@@ -1,7 +1,33 @@
+{% extends 'members/__base.html' %}
+{% load static %}
+
+{% block head %}
+    team members
+{% endblock %}
+
 {% block title %}
-    Members list
+    Team members
+{% endblock %}
+{% block subtitle %}
+    You have {{ members|length }} team members.
 {% endblock %}
 
 {% block content %}
-    {{ members }}
+    {% for member in members %}
+        <a class="card" href="{% url "members:edit" member.id %}">
+            <div class="row">
+                <div class="col-md-2 img-container">
+                    <img src="{% static 'members/imgs/default_profile_picture.png' %}" class="card-img"
+                         alt="member's profile picture">
+                </div>
+                <div class="col-md-10">
+                    <div class="card-body">
+                        <h5 class="card-title text-dark-gray">{{ member.get_full_name }}</h5>
+                        <p class="card-text text-muted ">{{ member.phone }}</p>
+                        <p class="card-text small text-muted">{{ member.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% endfor %}
 {% endblock %}

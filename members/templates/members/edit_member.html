@@ -1,10 +1,20 @@
+{% extends 'members/__base.html' %}
+{% block head %}
+    Edit Member
+{% endblock %}
 {% block title %}
-    Members list
+    Edit team member
+{% endblock %}
+
+{% block subtitle %}
+    Edit contact info, location, and role.
 {% endblock %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Save">
-    </form>
+    {% include 'members/member_info_form.html' with deletable=True %}
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script type="application/javascript" src="../../static/members/js/member_form_script.js"></script>
 {% endblock %}

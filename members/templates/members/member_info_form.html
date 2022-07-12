@@ -1,0 +1,17 @@
+{% load addClass %}
+{% load static %}
+
+{% block content %}
+    <form method="post" class="needs-validation" novalidate>{% csrf_token %}
+        {% include 'members/form_field.html' with field=form.first_name %}
+        {% include 'members/form_field.html' with field=form.last_name %}
+        {% include 'members/form_field.html' with field=form.email %}
+        {% include 'members/form_field.html' with field=form.phone %}
+        <div class="btn-group mr-2" role="group">
+            {#            {% if deletable %}#}
+            {#                <button type="submit" class="btn btn-outline-danger">Delete</button>#}
+            {#            {% endif %}#}
+            <button type="submit" class="btn btn-primary right">Save</button>
+        </div>
+    </form>
+{% endblock %}

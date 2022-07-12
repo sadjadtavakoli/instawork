@@ -1,7 +1,8 @@
 # Create your views here.
 from django.urls import reverse
-from django.views.generic import ListView, DetailView, UpdateView, CreateView
+from django.views.generic import ListView, UpdateView, CreateView
 
+from members.forms import AddMemberForm
 from members.models import Member
 
 
@@ -15,19 +16,17 @@ class MemberListView(ListView):
 
 class CreateMemberView(CreateView):
     model = Member
-    template_name = 'members/edit_member.html'
-    fields = ['first_name', 'last_name', 'email', 'phone']
+    template_name = 'members/add_member.html'
+    form_class = AddMemberForm
 
     def get_success_url(self):
         return reverse('members:list')
 
 
-class MemberDetailView(DetailView):
-    model = Member
-    template_name = 'members/member_details.html'
-
-
 class UpdateMemberView(UpdateView):
     model = Member
     template_name = 'members/edit_member.html'
-    fields = ['first_name', 'last_name', 'email', 'phone']
+    form_class = AddMemberForm
+
+    def get_success_url(self):
+        return reverse('members:list')
