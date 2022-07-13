@@ -1,0 +1,10 @@
+{% for choice in field.field.choices %}
+    <div>
+        {% with label=choice.1 value=choice.0 index=forloop.counter %}
+            {{ id }}
+            <label for="id_{{ field.name }}_{{ index }}">{{ label }}</label>
+            <input type="radio" name="{{ field.name }}" value="{{ value }}"
+                   id="id_{{ field.name }}_{{ index }}" {% if field.value == value %} checked {% endif %}>
+        {% endwith %}
+    </div>
+{% endfor %}

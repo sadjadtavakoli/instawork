@@ -3,10 +3,13 @@
 
 {% block content %}
     <form method="post" class="needs-validation" novalidate>{% csrf_token %}
-        {% include 'members/form_field.html' with field=form.first_name %}
-        {% include 'members/form_field.html' with field=form.last_name %}
-        {% include 'members/form_field.html' with field=form.email %}
-        {% include 'members/form_field.html' with field=form.phone %}
+        {% include 'members/_form_field_input.html' with field=form.first_name %}
+        {% include 'members/_form_field_input.html' with field=form.last_name %}
+        {% include 'members/_form_field_input.html' with field=form.email %}
+        {% include 'members/_form_field_input.html' with field=form.phone %}
+        {% include 'members/_form_field_selects.html' with field=form.role %}
+
+
         <div class="btn-group mr-2" role="group">
             {#            {% if deletable %}#}
             {#                <button type="submit" class="btn btn-outline-danger">Delete</button>#}

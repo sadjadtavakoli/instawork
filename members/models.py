@@ -1,6 +1,7 @@
 from django.contrib.auth.base_user import BaseUserManager
-from django.contrib.auth.models import AbstractUser, UserManager
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.db.models import TextChoices
 from django.utils.translation import gettext_lazy as _
 
 from utils import phone_number_regex
@@ -40,10 +41,19 @@ class MemberManager(BaseUserManager):
 
 
 class Member(AbstractUser):
+    class RoleChoices(TextChoices):
+        admin = 'Admin', _('Admin - Can delete members')
+        regular = 'Regular', _('Regular - Can\'t delete members')
+
     username = None
     email = models.EmailField(_('email address'), unique=True)
     phone = models.CharField(_('phone'), max_length=30, validators=[phone_number_regex], unique=True)
+    role = models.CharField(_('role'), max_length=20, choices=RoleChoices.choices, default=RoleChoices.regular)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
     objects = MemberManager()
+
+    @property
+    def is_admin(self):
+        return self.role == self.RoleChoices.admin

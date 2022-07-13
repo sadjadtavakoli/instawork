@@ -22,9 +22,9 @@
                 </div>
                 <div class="col-md-10">
                     <div class="card-body">
-                        <h5 class="card-title text-dark-gray">{{ member.get_full_name }}</h5>
+                        <h5 class="card-title text-dark-gray">{{ member.get_full_name }} {% if member.is_admin %}(admin){% endif %}</h5>
                         <p class="card-text text-muted ">{{ member.phone }}</p>
-                        <p class="card-text small text-muted">{{ member.email }}</p>
+                        <p class="card-text text-muted">{{ member.email }}</p>
                     </div>
                 </div>
             </div>
