@@ -8,8 +8,15 @@
 {% block title %}
     Team members
 {% endblock %}
+
 {% block subtitle %}
     You have {{ members|length }} team members.
+{% endblock %}
+
+{% block navbarItems %}
+    <a type="button" class="nav-button" href="{% url 'members:new' %}">
+        <i class="fa fa-plus"></i>
+    </a>
 {% endblock %}
 
 {% block content %}
