@@ -1,18 +1,20 @@
 {% load static %}
 <form method="post" class="needs-validation" novalidate>{% csrf_token %}
+    <h5 class="mb-3">Info</h5>
     {% include 'members/_form_field_input.html' with field=form.first_name %}
     {% include 'members/_form_field_input.html' with field=form.last_name %}
     {% include 'members/_form_field_input.html' with field=form.email %}
     {% include 'members/_form_field_input.html' with field=form.phone %}
+
+    <h5 class="mb-4 mt-4">Role</h5>
     {% include 'members/_form_field_selects.html' with field=form.role %}
 
-
-    <div class="btn-group mr-2" role="group">
+    <div class="mt-5">
         {% if deletabel %}
-            <button type="button" id="delete-button" class="btn btn-outline-danger" data-toggle="modal"
+            <button type="button" id="delete-button" class="btn btn-outline-danger form-button" data-toggle="modal"
                     data-target="#exampleModal">Delete
             </button>
         {% endif %}
-        <button type="submit" class="btn btn-primary right">Save</button>
+        <button type="submit" class="btn btn-primary float-right form-button">Save</button>
     </div>
 </form>

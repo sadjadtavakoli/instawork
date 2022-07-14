@@ -2,9 +2,10 @@
     <div>
         {% with label=choice.1 value=choice.0 index=forloop.counter %}
             {{ id }}
-            <label for="id_{{ field.name }}_{{ index }}">{{ label }}</label>
-            <input type="radio" name="{{ field.name }}" value="{{ value }}"
-                   id="id_{{ field.name }}_{{ index }}" {% if field.value == value %} checked {% endif %}>
+            <label for="id_{{ field.name }}_{{ index }}" class="w-100">{{ label }}
+                <input type="radio" name="{{ field.name }}" value="{{ value }}" class="float-right mt-2"
+                       id="id_{{ field.name }}_{{ index }}" {% if field.value == value %} checked {% endif %}></label>
         {% endwith %}
     </div>
+    <hr class="mt-1 mb-2">
 {% endfor %}

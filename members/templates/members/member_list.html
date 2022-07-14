@@ -14,21 +14,21 @@
 {% endblock %}
 
 {% block navbarItems %}
-    <a type="button" class="nav-button" href="{% url 'members:new' %}">
+    <a class="nav-button" href="{% url 'members:new' %}">
         <i class="fa fa-plus"></i>
     </a>
 {% endblock %}
 
 {% block content %}
     {% for member in members %}
-        <a class="card" href="{% url "members:edit" member.id %}">
-            <div class="row">
+        <a class="card border-0" href="{% url "members:edit" member.id %}">
+            <div class="row ml-0">
                 <div class="col-md-2 img-container">
                     <img src="{% static 'members/imgs/default_profile_picture.png' %}" class="card-img"
                          alt="member's profile picture">
                 </div>
                 <div class="col-md-10">
-                    <div class="card-body">
+                    <div class="card-body pl-0">
                         <h5 class="card-title text-dark-gray">{{ member.get_full_name }} {% if member.is_admin %}(admin){% endif %}</h5>
                         <p class="card-text text-muted ">{{ member.phone }}</p>
                         <p class="card-text text-muted">{{ member.email }}</p>
@@ -36,5 +36,6 @@
                 </div>
             </div>
         </a>
+        <hr>
     {% endfor %}
 {% endblock %}

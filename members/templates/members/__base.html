@@ -17,15 +17,16 @@
 <div class="container">
     <nav class="navbar justify-content-end">
         {% block navbarItems %}
-            <a type="button" class="nav-button" href="{% url 'main' %}">
+            <a class="nav-button" href="{% url 'main' %}">
                 <i class="fa fa-home"></i>
             </a>
         {% endblock %}
     </nav>
-    <div class="page-body">
+    <div>
         <h3 class="page-title text-dark-gray">{% block title %}{% endblock %}</h3>
         <h6 class="page-subtitle text-muted">{% block subtitle %}{% endblock %}</h6>
     </div>
+    <hr>
     {% block content %}
     {% endblock %}
 </div>
