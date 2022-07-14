@@ -1,4 +1,6 @@
 {% extends 'members/__base.html' %}
+{% load static %}
+
 {% block head %}
     Edit Member
 {% endblock %}
@@ -10,11 +12,14 @@
     Edit contact info, location, and role.
 {% endblock %}
 
+
 {% block content %}
-    {% include 'members/member_info_form.html' with deletable=True %}
+    {% include 'members/_add_edit_form_body.html' with deletabel=request.user.is_admin %}
+    {% include 'members/delete_confirmation_modal.html' with pk=pk %}
 {% endblock %}
 
 {% block js %}
     {{ block.super }}
-    <script type="application/javascript" src="../../static/members/js/member_form_script.js"></script>
+    <script type="application/javascript" src={% static "members/js/member_form_script.js" %}></script>
 {% endblock %}
+

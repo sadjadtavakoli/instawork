@@ -1,0 +1,18 @@
+{% load static %}
+<form method="post" class="needs-validation" novalidate>{% csrf_token %}
+    {% include 'members/_form_field_input.html' with field=form.first_name %}
+    {% include 'members/_form_field_input.html' with field=form.last_name %}
+    {% include 'members/_form_field_input.html' with field=form.email %}
+    {% include 'members/_form_field_input.html' with field=form.phone %}
+    {% include 'members/_form_field_selects.html' with field=form.role %}
+
+
+    <div class="btn-group mr-2" role="group">
+        {% if deletabel %}
+            <button type="button" id="delete-button" class="btn btn-outline-danger" data-toggle="modal"
+                    data-target="#exampleModal">Delete
+            </button>
+        {% endif %}
+        <button type="submit" class="btn btn-primary right">Save</button>
+    </div>
+</form>

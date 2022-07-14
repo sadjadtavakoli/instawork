@@ -33,9 +33,10 @@ REQUIRED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 PROJECT_APPS = [
-    'members'
+    'members',
 ]
 
 INSTALLED_APPS = REQUIRED_APPS + PROJECT_APPS
@@ -112,6 +113,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = (
@@ -125,5 +132,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'members.Member'
 
-ADMIN_USERNAME = "admin"
+ADMIN_EMAIL = "admin"
 ADMIN_PASSWORD = '12345'
