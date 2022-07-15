@@ -1,3 +1,4 @@
 from django.core.validators import RegexValidator
 
-phone_number_regex = RegexValidator(regex=r'^(\+1)?[0-9]{10}$', message='Phone number should contain 10 digits.')
+phone_number_regex = RegexValidator(regex=r'^\d{3}[-]\d{3}[-]\d{4}$',
+                                    message='Phone number must be formatted as ###-###-####.')
