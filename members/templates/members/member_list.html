@@ -22,17 +22,15 @@
 {% block content %}
     {% for member in members %}
         <a class="card border-0" href="{% url "members:edit" member.id %}">
-            <div class="row ml-0">
-                <div class="col-md-2 img-container">
-                    <img src="{% static 'members/imgs/default_profile_picture.png' %}" class="card-img"
+            <div class="flex-wrap d-flex">
+                <div class="thumbnail-container">
+                    <img src="{% static 'members/imgs/default_profile_picture.png' %}" class="card-thumbnail"
                          alt="member's profile picture">
                 </div>
-                <div class="col-md-10">
-                    <div class="card-body pl-0">
-                        <h5 class="card-title text-dark-gray">{{ member.get_full_name }} {% if member.is_admin %}(admin){% endif %}</h5>
-                        <p class="card-text text-muted ">{{ member.phone }}</p>
-                        <p class="card-text text-muted">{{ member.email }}</p>
-                    </div>
+                <div class="card-body p-0 w-75">
+                    <h5 class="text-dark-gray">{{ member.get_full_name }} {% if member.is_admin %}(admin){% endif %}</h5>
+                    <p class="card-text mb-1">{{ member.phone }}</p>
+                    <p class="card-text">{{ member.email }}</p>
                 </div>
             </div>
         </a>
