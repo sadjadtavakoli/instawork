@@ -42,6 +42,7 @@
     max-height: 70px;
 }
 
+.nav-button:hover,
 .card:hover {
     opacity: 0.75;
     text-decoration: none;
@@ -49,11 +50,6 @@
 
 .nav-button {
     font-size: 1.5rem;
-}
-
-.nav-button:hover {
-    opacity: 0.75;
-    text-decoration: none;
 }
 
 .form-button {
@@ -98,6 +94,7 @@
 .radio-button label {
     margin-bottom: 0;
     padding-bottom: 0.5rem;
+    opacity: 0.4;
 }
 
 .checkmark {
@@ -107,8 +104,7 @@
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    border: 2px solid #4b78ed;
-
+    border: 2px solid gray;
 }
 
 .checkmark:after {
@@ -117,7 +113,7 @@
     display: none;
 }
 
-.radio-button input:checked ~ .checkmark:after {
+.radio-button input:checked ~ label .checkmark:after {
     display: block;
 }
 
@@ -136,4 +132,12 @@ a {
 
 a:hover {
     color: #022d6d;
+}
+
+.radio-button input:checked~ label{
+   opacity:1.0;
+}
+
+.radio-button input:checked~ label .checkmark{
+    border-color: #4b78ed;
 }
