@@ -10,3 +10,10 @@
     </div>
     <hr class="mt-1 mb-2">
 {% endfor %}
+{% if field.errors %}
+    <div class="error_message hidden">
+        {% for error in field.errors %}
+            {{ error }}
+        {% endfor %}
+    </div>
+{% endif %}

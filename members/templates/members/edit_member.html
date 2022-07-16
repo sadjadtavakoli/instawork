@@ -15,7 +15,7 @@
 
 {% block content %}
     {% include 'members/_add_edit_form_body.html' with deletabel=request.user.is_admin %}
-    {% include 'members/delete_confirmation_modal.html' with pk=pk %}
+    {% include 'members/delete_confirmation_modal.html' with pk=object.id %}
 {% endblock %}
 
 {% block js %}
