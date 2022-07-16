@@ -10,6 +10,6 @@ class AddMemberForm(forms.ModelForm):
         widgets = {
             'first_name': forms.TextInput(attrs={'placeholder': 'First name'}),
             'last_name': forms.TextInput(attrs={'placeholder': 'Last name'}),
-            'phone': forms.TextInput(attrs={'placeholder': 'Phone'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Phone (###-###-####)'}),
             'email': forms.EmailInput(attrs={'placeholder': 'Email'})
         }

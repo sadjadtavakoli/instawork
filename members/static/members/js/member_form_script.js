@@ -17,4 +17,17 @@ $(document).ready(function () {
             }
         });
     });
+
+    $('input[name="phone"]').on('input', function(){
+        let value = this.value.replaceAll('-','');
+        const areaCode = value.substring(0,3);
+        const middle = value.substring(3,6);
+        const last = value.substring(6,10);
+        let replacement = areaCode;
+        if(areaCode.length === 3) replacement+="-";
+        if(middle) replacement+=middle;
+        if(middle.length === 3) replacement+="-";
+        if(last) replacement+=last;
+        this.value= replacement;
+    });
 });

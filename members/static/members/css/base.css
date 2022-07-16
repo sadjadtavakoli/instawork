@@ -93,7 +93,7 @@
 .radio-button label {
     margin-bottom: 0;
     padding-bottom: 0.5rem;
-    opacity: 0.4;
+    opacity: 0.55;
 }
 
 .checkmark {
@@ -133,10 +133,17 @@ a:hover {
     color: #022d6d;
 }
 
-.radio-button input:checked~ label{
-   opacity:1.0;
+.radio-button input:checked ~ label {
+    opacity: 1.0;
 }
 
-.radio-button input:checked~ label .checkmark{
+.radio-button input:checked ~ label .checkmark {
     border-color: #4b78ed;
 }
+
+.form-control::placeholder /* Most modern browsers support this now. */
+{
+    color: lightgrey;
+    opacity: 1;
+}
+
