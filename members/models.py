@@ -47,7 +47,7 @@ class Member(AbstractUser):
 
     username = None
     email = models.EmailField(_('email address'), unique=True)
-    phone = models.CharField(_('phone'), max_length=30, validators=[phone_number_regex], unique=True)
+    phone = models.CharField(_('phone'), max_length=12, validators=[phone_number_regex], unique=True)
     role = models.CharField(_('role'), max_length=20, choices=RoleChoices.choices, default=RoleChoices.regular)
 
     USERNAME_FIELD = 'email'
